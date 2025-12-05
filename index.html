@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voluntários - Ação Ferreira Gomes/AP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #34d399 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 3px solid #34d399;
+        }
+
+        .header h1 {
+            color: #10b981;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #6b7280;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        .info-box {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .info-box h3 {
+            color: #065f46;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .info-box p {
+            color: #047857;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            color: #374151;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .required {
+            color: #ef4444;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        input[type="text"]:focus,
+        input[type="tel"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .submit-btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .message {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .message.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 2px solid #10b981;
+            display: block;
+        }
+
+        .message.loading {
+            background: #dbeafe;
+            color: #1e40af;
+            border: 2px solid #3b82f6;
+            display: block;
+        }
+
+        .helper-text {
+            font-size: 0.85em;
+            color: #6b7280;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
+        }
+
+        iframe {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚌 Voluntários - Ferreira Gomes/AP</h1>
+            <p>Mega Ação Social - Domingo</p>
+        </div>
+
+        <div class="info-box">
+            <h3>🚍 Informações do Transporte</h3>
+            <p>
+                <strong>Saída:</strong> Macapá → Ferreira Gomes/AP<br>
+                <strong>Dia:</strong> Domingo<br>
+                <strong>Transporte:</strong> Ônibus disponibilizado<br>
+                <strong>Confirmação:</strong> Necessária até 05/12/2025 às 16h
+            </p>
+        </div>
+
+        <div id="mensagem" class="message"></div>
+
+        <form id="formulario" method="POST" action="https://script.google.com/macros/s/AKfycbzB5nC_FGDaP6zLlS7Osy--2ozIEBwQCuEUEB0eeNdvkLWSfv-0fTR_XhXKkYoRFUgf3A/exec" target="hidden_iframe">
+            
+            <div class="form-group">
+                <label>Nome Completo <span class="required">*</span></label>
+                <input type="text" name="nome" required placeholder="Digite seu nome completo">
+            </div>
+
+            <div class="form-group">
+                <label>Telefone/WhatsApp <span class="required">*</span></label>
+                <input type="tel" name="telefone" id="telefone" required placeholder="(00) 00000-0000">
+                <div class="helper-text">Formato: (96) 99999-9999</div>
+            </div>
+
+            <div class="form-group">
+                <label>Endereço Completo <span class="required">*</span></label>
+                <input type="text" name="endereco" required placeholder="Rua, número, complemento">
+            </div>
+
+            <div class="form-group">
+                <label>Bairro <span class="required">*</span></label>
+                <input type="text" name="bairro" required placeholder="Nome do bairro">
+            </div>
+
+            <div class="form-group">
+                <label>Observações (Opcional)</label>
+                <textarea name="observacoes" placeholder="Alguma informação adicional que precisamos saber?"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Confirmar Presença 🚌</button>
+        </form>
+    </div>
+
+    <iframe name="hidden_iframe" id="hidden_iframe"></iframe>
+
+    <script>
+        // Máscara de telefone
+        document.getElementById('telefone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.length <= 11) {
+                value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+                value = value.replace(/(\d)(\d{4})$/, '$1-$2');
+            }
+            
+            e.target.value = value;
+        });
+
+        document.getElementById('formulario').addEventListener('submit', function() {
+            const mensagem = document.getElementById('mensagem');
+            const botao = document.querySelector('.submit-btn');
+            
+            mensagem.className = 'message loading';
+            mensagem.textContent = '⏳ Confirmando sua presença...';
+            botao.disabled = true;
+
+            setTimeout(function() {
+                mensagem.className = 'message success';
+                mensagem.textContent = '✅ Presença confirmada! Te esperamos no domingo! 🚌💚';
+                document.getElementById('formulario').reset();
+                botao.disabled = false;
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
